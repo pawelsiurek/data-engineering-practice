@@ -1,4 +1,6 @@
 import requests
+import zipfile
+import os
 
 download_uris = [
     "https://divvy-tripdata.s3.amazonaws.com/Divvy_Trips_2018_Q4.zip",
@@ -10,10 +12,16 @@ download_uris = [
     "https://divvy-tripdata.s3.amazonaws.com/Divvy_Trips_2220_Q1.zip",
 ]
 
+def create_directory(dir_name='downloads'):
+    try:
+        os.mkdir(dir_name)
+        print(f"Directory {dir_name} created succesfully!")
+        
+    except FileExistsError:
+        print(f"Directory {dir_name} already exists!")
 
 def main():
-    # your code here
-    pass
+    create_directory()
 
 
 if __name__ == "__main__":
